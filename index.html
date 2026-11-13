@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAPON — MEXT Natural Sciences A Preparation Platform</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>🇯🇵 <span>JAPON</span> MEXT</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-section="dashboard" onclick="navigateTo('dashboard')">📊 Dashboard</button>
+      <button class="nav-item" data-section="english" onclick="navigateTo('english')">📘 English & Terminology</button>
+      <button class="nav-item" data-section="mathematics" onclick="navigateTo('mathematics')">📐 Mathematics</button>
+      <button class="nav-item" data-section="chemistry" onclick="navigateTo('chemistry')">🧪 Chemistry</button>
+      <button class="nav-item" data-section="physics" onclick="navigateTo('physics')">⚛️ Physics</button>
+      <button class="nav-item" data-section="japanese" onclick="navigateTo('japanese')">🗾 Japanese</button>
+      <button class="nav-item" data-section="exam" onclick="navigateTo('exam')">📝 Exam Center</button>
+      <button class="nav-item" data-section="settings" onclick="navigateTo('settings')">⚙️ Settings</button>
+    </nav>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="top-header">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('mobile-open')">☰</button>
+        <div class="header-title"><h2 id="page-title">Dashboard</h2></div>
+      </div>
+      <div class="header-actions">
+        <div class="user-streak-badge" id="header-streak">🔥 1 Day Streak</div>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <!-- Dashboard View -->
+      <section id="view-dashboard" class="view-section active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="label">Overall Progress</div>
+            <div class="value" id="dash-overall-pct">0%</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Completed Lessons</div>
+            <div class="value" id="dash-completed-lessons">0 / 0</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Total Study Time</div>
+            <div class="value" id="dash-study-time">0 min</div>
+          </div>
+          <div class="stat-card">
+            <div class="label">Study Streak</div>
+            <div class="value" id="dash-streak">1 day</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>
+            <span>Daily Study Goal</span>
+            <span id="dash-daily-goal-text" style="font-size:0.9rem; color:var(--text-secondary);">0 / 45 min (0%)</span>
+          </h3>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="dash-daily-goal-bar" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <div class="panel">
+            <h3>Subject Progress</h3>
+            <div id="dash-subject-progress"></div>
+          </div>
+          <div>
+            <div class="panel">
+              <h3>Recent Test Results</h3>
+              <div id="dash-recent-tests"></div>
+            </div>
+            <div class="panel">
+              <h3>Weak Topics & Recommended Revision</h3>
+              <div id="dash-weak-topics"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subject Views -->
+      <section id="view-english" class="view-section"></section>
+      <section id="view-mathematics" class="view-section"></section>
+      <section id="view-chemistry" class="view-section"></section>
+      <section id="view-physics" class="view-section"></section>
+      <section id="view-japanese" class="view-section"></section>
+      <section id="view-exam" class="view-section"></section>
+      <section id="view-settings" class="view-section"></section>
+    </main>
+  </div>
+
+  <!-- Lesson Modal -->
+  <div class="modal-overlay" id="lesson-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('lesson-modal')">✕</button>
+      <div id="lesson-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="assets/data/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
